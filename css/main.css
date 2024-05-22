@@ -1,22 +1,97 @@
+/* main.css */
+
+/* Reset some basic elements */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
 body {
-    font-family: Verdana, sans-serif;
+    background-color: #FFFFF0; /* Ivory background */
+    color: #36454F; /* Charcoal text */
+    line-height: 1.6;
+}
+
+.header {
+    background-color: #008080; /* Teal background */
+    color: #FFFFF0; /* Ivory text */
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.assignment-header{
+    margin-left:20px;
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #008080; /* Teal horizontal rule */
+}
+
+/* Flexbox container for bio and certificates */
+.content-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.bio, .certificates {
+    background-color: #f0f8ff; /* Light color for blocks */
+    border: 1px solid #008080; /* Teal border */
+    border-radius: 8px;
+    padding: 20px;
+    width: 40%;
+    box-sizing: border-box;
+}
+
+.bio p {
+    font-size: 1.2em;
+}
+
+.certificates h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.certificates ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.certificates li {
+    font-size: 1.2em;
+    margin: 5px 0;
 }
 
 .assignments-container {
     display: flex;
-    justify-content: space-between; /* To space the divs evenly */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .assignments {
-    border-style: solid;
-    border-width: 2px;
-    width: calc(50% - 5px); /* Adjust width as per your requirement */
+    background-color: #f0f8ff; /* Light color for assignment blocks */
+    border: 1px solid #008080; /* Teal border */
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 10px 0;
 }
 
-.header{
-    background-color: blue;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+.assignments h2 {
+    color: #008080; /* Teal heading */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.assignments p {
+    font-size: 1em;
 }
