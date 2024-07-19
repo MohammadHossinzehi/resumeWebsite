@@ -15,7 +15,6 @@ function newRoom(){
         .then(response => response.text())
         .then(response => enterRoom(response)); // enter the room with the code
 }
-
 function enterRoom(code) {
     // refresh the list of rooms
     // create the web socket
