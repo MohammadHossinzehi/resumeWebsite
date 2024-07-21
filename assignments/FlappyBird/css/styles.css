@@ -33,6 +33,8 @@ canvas {
     border: 2px solid #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #fff;
+    width: 750px;
+    height: 500px;
 }
 
 /* Style the footer */
@@ -44,7 +46,6 @@ canvas {
 .footer p {
     font-size: 1em;
 }
-
 
 .game-over {
     display: none;
@@ -74,4 +75,44 @@ canvas {
 
 #retryButton:hover {
     background-color: #555;
+}
+
+#scoreboard {
+    background: white;
+    border: 1px solid black;
+    max-width: 200px;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 850px;
+    height: 400px;
+}
+
+/* Container for the game and scoreboard */
+.game-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 100px; /* Gap between scoreboard and canvas */
+    max-width: 1200px; /* Ensure it doesn't stretch too wide */
+    margin: 0 auto; /* Center horizontally in the container */
+}
+
+#scoreList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#scoreList li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#gameOverScreen {
+    display: none;
+    background-color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

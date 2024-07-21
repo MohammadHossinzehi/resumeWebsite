@@ -5,10 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let gameOver = false;
-    let poleGap = 200;
+    let poleGap = 150;
     let poleWidth = 70;
     let score = 0;
     let gameStart = false;
+    let poleSpacing = 600;
 
     // Load images
     const playerImage = new Image();
@@ -27,20 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const player = {
         x: canvas.width / 2,
         y: canvas.height / 2,
-        width: 50,
+        width: 60,
         height: 40,
         speed: 5,
         jumpSpeed: 0,
         isJumping: false,
-        gravity: 0.1,
-        jumpStrength: 3,
+        gravity: 0.13,
+        jumpStrength: 4,
         groundLevel: canvas.height - 40,
         roofLevel: 40
     };
 
     const poles = [
         createPole(canvas.width),
-        createPole(canvas.width + 700)
+        createPole(canvas.width + poleSpacing),
+        createPole(canvas.width + poleSpacing * 2)
     ];
 
     let backgroundX = 0;
@@ -80,6 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function update() {
         if (!gameStart) {
             if (keys.space) {
+                player.isJumping = true;
+                player.jumpSpeed = -player.jumpStrength;
                 gameStart = true;
                 keys.space = false;
             }
@@ -145,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 if (pole.top.x + pole.top.width < 0) {
-                    Object.assign(pole, createPole(canvas.width));
+                    poles.shift();
+                    poles.push(createPole(poles[poles.length - 1].top.x + poleSpacing));
                 }
             });
 
@@ -195,14 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const boxWidth = 150;
         const boxHeight = 50;
         const boxX = canvas.width / 2 - boxWidth / 2;
-        const boxY = canvas.height / 2 - boxHeight / 2 - 200; // Center 200px above
+        const boxY = canvas.height / 2 - boxHeight / 2 - 200;
 
         context.fillStyle = 'white';
-        context.fillRect(boxX, boxY, boxWidth, boxHeight);
-
-        context.fillStyle = 'black';
-        context.font = '30px Arial';
-        context.fillText('Score: ' + score, boxX + 10, boxY + boxHeight - 10);
+        context.font = '50px Arial';
+        context.fillText('Score: ' + score, boxX , boxY + boxHeight - 10);
     }
 
     function resetGame() {
@@ -212,26 +214,53 @@ document.addEventListener('DOMContentLoaded', () => {
         player.x = canvas.width / 2;
         player.y = canvas.height / 2;
         poles.length = 0;
-        poles.push(createPole(canvas.width), createPole(canvas.width + 700));
+        poles.push(
+            createPole(canvas.width),
+            createPole(canvas.width + poleSpacing),
+            createPole(canvas.width + poleSpacing * 2)
+        );
         document.getElementById('gameOverScreen').style.display = 'none';
         update();
     }
 
-    // Debugging: Check if the button exists
-    const retryButton = document.getElementById('retryButton');
-    if (retryButton) {
-        retryButton.addEventListener('click', resetGame);
-    } else {
-        console.error('Retry button not found');
+    function saveScore(name, score) {
+        const scores = JSON.parse(localStorage.getItem('scores')) || [];
+        scores.push({ name, score });
+        scores.sort((a, b) => b.score - a.score);
+        localStorage.setItem('scores', JSON.stringify(scores.slice(0, 10)));
+        displayScores();
     }
+
+    function displayScores() {
+        const scoreList = document.getElementById('scoreList');
+        const scores = JSON.parse(localStorage.getItem('scores')) || [];
+        scoreList.innerHTML = '';
+        scores.forEach(({ name, score }) => {
+            const li = document.createElement('li');
+            li.textContent = `${name}: ${score}`;
+            scoreList.appendChild(li);
+        });
+    }
+
+    document.getElementById('retryButton').addEventListener('click', resetGame);
+
+    document.getElementById('submitScore').addEventListener('click', () => {
+        const playerName = document.getElementById('playerName').value;
+        if (playerName) {
+            saveScore(playerName, score);
+            resetGame();
+        }
+    });
 
     playerImage.onload = () => {
         pipeImage.onload = () => {
             backgroundImage.onload = () => {
                 roofImage.onload = () => {
+                    displayScores();
                     update();
                 };
             };
         };
     };
 });
+update();
