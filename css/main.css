@@ -1,21 +1,21 @@
 /* main.css */
 
-/* Reset some basic elements */
+/* Reset basic elements */
 body, h1, h2, p {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
-    background-color: #FFFFF0; /* Ivory background */
-    color: #36454F; /* Charcoal text */
+    background-color: #f0f0f5; /* Soft white background */
+    color: #1a1a2e; /* Dark navy blue text */
     line-height: 1.6;
 }
 
 .header {
-    background-color: #008080; /* Teal background */
-    color: #FFFFF0; /* Ivory text */
+    background-color: #1a1a2e; /* Dark navy blue background */
+    color: #ffffff; /* White text */
     text-align: center;
     padding: 20px 0;
 }
@@ -25,73 +25,92 @@ body {
     font-size: 2.5em;
 }
 
-.assignment-header{
-    margin-left:20px;
-    text-align: center;
-}
-
 hr {
-    border: 1px solid #008080; /* Teal horizontal rule */
+    border: 1px solid #00b5ad; /* Teal horizontal rule */
+    margin: 20px 0;
 }
 
-/* Flexbox container for bio and certificates */
+/* Centering container for section headers */
+.section-header-container {
+    text-align: center; /* Center align the container */
+    margin: 0 auto; /* Center the container itself */
+}
+
+/* Styling for the section headers (Bio, Programming Languages, Worked with) */
+.section-header {
+    font-size: 1.8em; /* Slightly smaller font size for section headers */
+    color: #00b5ad; /* Teal color for visual contrast */
+    margin: 20px 0 15px 0; /* Add space above and below the header */
+    text-transform: uppercase; /* Make the text uppercase for consistency */
+    letter-spacing: 1.5px; /* Slightly increase the spacing between letters */
+    border-bottom: 1.5px solid #00b5ad; /* Add a teal underline */
+    display: inline-block; /* Ensure the underline does not stretch the full width */
+    padding-bottom: 4px; /* Add a little padding to the bottom for spacing */
+}
+
+/* Centering container for the projects header */
+.projects-header-container {
+    text-align: center; /* Center align the container */
+    margin: 0 auto; /* Center the container itself */
+}
+
+/* Styling for the projects subheader */
+.projects-header {
+    font-size: 2em; /* Larger font size for emphasis */
+    color: #00b5ad; /* Teal color for visual contrast */
+    margin: 30px 0 20px 0; /* Add space above and below the header */
+    text-transform: uppercase; /* Make the text uppercase for a modern look */
+    letter-spacing: 2px; /* Slightly increase the spacing between letters */
+    border-bottom: 2px solid #00b5ad; /* Add a teal underline */
+    display: inline-block; /* Ensure the underline does not stretch the full width */
+    padding-bottom: 5px; /* Add a little padding to the bottom for spacing */
+}
+
+/* Flexbox container for bio and skills sections */
 .content-container {
     display: flex;
     justify-content: space-around;
     padding: 20px;
+    flex-wrap: wrap;
 }
 
-.bio, .certificates {
-    background-color: #f0f8ff; /* Light color for blocks */
-    border: 1px solid #008080; /* Teal border */
-    border-radius: 8px;
+.bio, .skills, .tools {
+    background-color: #e8eaf6; /* Light color for card blocks */
+    border: 1px solid #1a1a2e; /* Dark navy border */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for 3D effect */
     padding: 20px;
-    width: 40%;
+    width: 30%;
     box-sizing: border-box;
+    margin: 10px;
 }
 
-.bio p {
-    font-size: 1.2em;
-}
-
-.certificates h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.certificates ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.certificates li {
-    font-size: 1.2em;
-    margin: 5px 0;
-}
-
-.assignments-container {
+/* Styling for the projects section */
+.projects-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-.assignments {
-    background-color: #f0f8ff; /* Light color for assignment blocks */
-    border: 1px solid #008080; /* Teal border */
-    border-radius: 8px;
+.project {
+    background-color: #e8eaf6; /* Light color for project blocks */
+    border: 1px solid #1a1a2e; /* Dark navy border */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
     width: 80%;
     max-width: 600px;
     padding: 20px;
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
-.assignments h2 {
-    color: #008080; /* Teal heading */
+.project h2 {
+    color: #00b5ad; /* Teal heading */
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-.assignments p {
+.project p {
     font-size: 1em;
+    color: #1a1a2e; /* Dark navy text */
 }
