@@ -1,0 +1,118 @@
+/* Reset some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a consistent font */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Style the container to center content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Style the heading */
+h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Style the canvas */
+canvas {
+    border: 2px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    width: 750px;
+    height: 500px;
+}
+
+/* Style the footer */
+.footer {
+    margin-top: 20px;
+    color: #666;
+}
+
+.footer p {
+    font-size: 1em;
+}
+
+.game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-over p {
+    margin: 10px 0;
+}
+
+#retryButton {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#retryButton:hover {
+    background-color: #555;
+}
+
+#scoreboard {
+    background: white;
+    border: 1px solid black;
+    max-width: 200px;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 850px;
+    height: 400px;
+}
+
+/* Container for the game and scoreboard */
+.game-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 100px; /* Gap between scoreboard and canvas */
+    max-width: 1200px; /* Ensure it doesn't stretch too wide */
+    margin: 0 auto; /* Center horizontally in the container */
+}
+
+#scoreList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#scoreList li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#gameOverScreen {
+    display: none;
+    background-color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

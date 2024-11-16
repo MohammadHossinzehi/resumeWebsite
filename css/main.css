@@ -34,7 +34,7 @@ hr {
 .section-header-container {
     text-align: center; /* Center align the container */
     margin: 0 auto; /* Center the container itself */
-}
+} 
 
 /* Styling for the section headers (Bio, Programming Languages, Worked with) */
 .section-header {
@@ -74,7 +74,7 @@ hr {
     flex-wrap: wrap;
 }
 
-.bio, .skills, .tools {
+.skills, .tools {
     background-color: #e8eaf6; /* Light color for card blocks */
     border: 1px solid #1a1a2e; /* Dark navy border */
     border-radius: 12px;
@@ -113,4 +113,26 @@ hr {
 .project p {
     font-size: 1em;
     color: #1a1a2e; /* Dark navy text */
+}
+.bio{
+    background-color: #e8eaf6; /* Light color for card blocks */
+    border: 1px solid #1a1a2e; /* Dark navy border */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow for 3D effect */
+    padding: 20px;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 10px;
+    margin-right:auto;
+    margin-left: auto;
+}
+.center-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Horizontally center all children */
+    text-align: center; /* Center text inside children */
+    padding: 20px; /* Add some spacing around the content */
+    background-color: #f0f0f5; /* Optional background color */
+    min-height: 100vh; /* Center content vertically in the viewport */
+    box-sizing: border-box;
 }
